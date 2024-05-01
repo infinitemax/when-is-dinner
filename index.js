@@ -2,13 +2,13 @@
 const text = document.getElementById("text")
 const timeNow = document.getElementById("now")
 const dinner = document.getElementById("dinner")
-
 const dinnerTime = new Date("2024-05-01T19:00:00")
-
 const now = new Date()
 
-const timeLeft = dinnerTime-now 
 
+
+
+const timeLeft = dinnerTime-now 
 const hours = Math.floor(timeLeft / 1000 / 60 /60)
 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
 
@@ -25,8 +25,27 @@ const getMinWord = (minutes) => {
     return "minutes"
 }
 
+const getTitleWord = () => {
+    if (dinnerTime < now) {
+        return "since"
+    }
+    return "until"
+}
 
-text.innerHTML = `${hours} ${getHourWord(hours)} and ${minutes} ${getMinWord(minutes)}` 
-timeNow.innerHTML = now
-dinner.innerHTML = dinnerTime
+const titleWord = document.getElementById("titleWord")
 
+
+
+
+
+
+if (dinnerTime > now) {
+    text.innerHTML = `${hours} ${getHourWord(hours)} and ${minutes} ${getMinWord(minutes)}` 
+    timeNow.innerHTML = now
+    dinner.innerHTML = dinnerTime
+}
+
+if (dinnerTime < now) {
+    titleWord.innerHTML = `since`
+    text.innerHTML = `${hours-1} ${getHourWord(hours)} and ${minutes} ${getMinWord(minutes)}`
+}
