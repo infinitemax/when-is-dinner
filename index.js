@@ -2,7 +2,7 @@
 const text = document.getElementById("text")
 const timeNow = document.getElementById("now")
 const dinner = document.getElementById("dinner")
-const dinnerTime = new Date("2024-05-01T19:00:00")
+const dinnerTime = new Date("2024-05-01T20:30:00")
 const now = new Date()
 postscript = document.getElementById("postscript")
 
@@ -47,10 +47,6 @@ if (dinnerTime > now) {
     timeNow.innerHTML = now
     dinner.innerHTML = dinnerTime
 }
-
-// if (dinnerTime === now) {
-//     const title = 
-// }
 
 if (dinnerTime < now) {
     
